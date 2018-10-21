@@ -15,5 +15,18 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('/buildings/{geo}', 'BuildingController@buildings');
-Route::get('/firms/{geo}', 'BuildingController@firms');
+Route::get('building/geo/{geo}', 'BuildingController@geo');
+Route::get('firms/geo/{geo}', 'BuildingController@firms');
+
+Route::match(['get', 'post'], '/firm', 'SearchController@firm');
+
+Route::get('building/view/{id}', 'BuildingController@view');
+Route::get('building/all', 'BuildingController@all');
+
+Route::get('category/view/{id}', 'CategoryController@view');
+Route::get('category/all', 'CategoryController@all');
+
+Route::get('firm/view/{id}', 'FirmController@view');
+Route::get('firm/all', 'FirmController@all');
+
+

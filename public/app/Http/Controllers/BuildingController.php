@@ -8,7 +8,21 @@ use App\Firm;
 
 class BuildingController extends Controller
 {
-    public function buildings($geo)
+    public function all()
+    {
+        $buildings = Building::all();
+        $view = view('building', ['items' => $buildings])->render();
+        return (new Response($view));
+    }
+
+    public function view($id)
+    {
+        $building = Building::where('id', $id)->get();
+        $view = view('building', ['items' => $building])->render();
+        return (new Response($view));
+    }
+
+    public function geo($geo)
     {
         $view = view('building', ['items' => $this->getBuildings($geo)])->render();
         return (new Response($view));

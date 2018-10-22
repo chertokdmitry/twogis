@@ -19,11 +19,14 @@ Route::get('building/geo/{geo}', 'BuildingController@geo');
 Route::get('firms/geo/{geo}', 'BuildingController@firms');
 
 Route::match(['get', 'post'], '/firm', 'SearchController@firm');
+Route::match(['get', 'post'], '/firm_category', 'SearchController@searchFirmCategory');
 
 Route::get('building/view/{id}', 'BuildingController@view');
 Route::get('building/all', 'BuildingController@all');
+Route::get('building/firm/{id}', 'BuildingController@firmsBuilding');
 
 Route::get('category/view/{id}', 'CategoryController@view');
+Route::get('category/firms/{id}', 'CategoryController@firmsCategory');
 Route::get('category/all', 'CategoryController@all');
 
 Route::get('firm/view/{id}', 'FirmController@view');

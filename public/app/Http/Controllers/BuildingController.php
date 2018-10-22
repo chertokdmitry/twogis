@@ -2,7 +2,6 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Response;
 use App\Building;
 use App\Firm;
 
@@ -11,21 +10,33 @@ class BuildingController extends Controller
     public function all()
     {
         $buildings = Building::all();
-        $view = view('building', ['items' => $buildings])->render();
-        return (new Response($view));
+
+        return response()->json($buildings);
+    }
+
+    public function firmsBuilding($id)
+    {
+        $firms = [];
+
+        $result = Building::find($id);
+
+        foreach ($result->firms as $firm) {
+            $firms[] = ['id' => $firm->id, 'name' => $firm->name];
+        }
+
+        return response()->json($firms);
     }
 
     public function view($id)
     {
         $building = Building::where('id', $id)->get();
-        $view = view('building', ['items' => $building])->render();
-        return (new Response($view));
+
+        return response()->json($building);
     }
 
     public function geo($geo)
     {
-        $view = view('building', ['items' => $this->getBuildings($geo)])->render();
-        return (new Response($view));
+        return response()->json($this->getBuildings($geo));
     }
 
     public function firms($geo)
@@ -40,8 +51,7 @@ class BuildingController extends Controller
             }
         }
 
-        $view = view('firm', ['items' => $allFirms])->render();
-        return (new Response($view));
+        return response()->json($allFirms);
     }
 
     public function getBuildings($geo)

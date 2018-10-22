@@ -4,13 +4,14 @@
 
     <table class="table">
 
-        @foreach ($items as $item)
+
+
             <tr>
-                <td>{{ $item['id'] }}</td>
+                <td>helllllooooo</td>
                 <td>
-                    {{ $item['name'] }}
+
                 </td>
             </tr>
-        @endforeach
+
     </table>
 @endsection

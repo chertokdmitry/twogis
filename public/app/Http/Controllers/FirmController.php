@@ -10,14 +10,12 @@ class FirmController extends Controller
     public function all()
     {
         $firms = Firm::all();
-        $view = view('firm', ['items' => $firms])->render();
-        return (new Response($view));
+        return response()->json($firms);
     }
 
     public function view($id)
     {
         $firm = Firm::where('id', $id)->get();
-        $view = view('firm', ['items' => $firm])->render();
-        return (new Response($view));
+        return response()->json($firm);
     }
 }

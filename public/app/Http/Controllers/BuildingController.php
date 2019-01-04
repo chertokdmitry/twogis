@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Cache;
 use App\Building;
 use App\Firm;
 
@@ -9,7 +10,11 @@ class BuildingController extends Controller
 {
     public function all()
     {
-        $buildings = Building::all();
+        $key = 'buildingsAll';
+        $buildings = Cache::remember($key, 60, function () {
+
+            return  Building::all();
+        });
 
         return response()->json($buildings);
     }

@@ -12,24 +12,26 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('main');
 });
-
-Route::get('building/geo/{geo}', 'BuildingController@geo');
-Route::get('firms/geo/{geo}', 'BuildingController@firms');
 
 Route::match(['get', 'post'], '/firm', 'SearchController@firm');
 Route::match(['get', 'post'], '/firm_category', 'SearchController@searchFirmCategory');
 
-Route::get('building/view/{id}', 'BuildingController@view');
-Route::get('building/all', 'BuildingController@all');
-Route::get('building/firm/{id}', 'BuildingController@firmsBuilding');
+Route::get('firms/search/{keyword}', 'SearchController@firms');
+Route::get('create', 'SearchController@create');
 
-Route::get('category/view/{id}', 'CategoryController@view');
-Route::get('category/firms/{id}', 'CategoryController@firmsCategory');
-Route::get('category/all', 'CategoryController@all');
+Route::get('buildings/view/{id}', 'BuildingController@view');
+Route::get('buildings/all', 'BuildingController@all');
+Route::get('buildings/firm/{id}', 'BuildingController@firmsBuilding');
+Route::get('buildings/geo/{geo}', 'BuildingController@geo');
 
-Route::get('firm/view/{id}', 'FirmController@view');
-Route::get('firm/all', 'FirmController@all');
+Route::get('categories/view/{id}', 'CategoryController@view');
+Route::get('categories/firms/{id}', 'CategoryController@firmsCategory');
+Route::get('categories/all', 'CategoryController@all');
+
+Route::get('firms/view/{id}', 'FirmController@view');
+Route::get('firms/all', 'FirmController@all');
+Route::get('firms/geo/{geo}', 'BuildingController@firms');
 
 

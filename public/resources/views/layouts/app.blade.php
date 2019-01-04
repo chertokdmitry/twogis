@@ -1,26 +1,56 @@
 @section('head')
         <!doctype html>
-<html lang="{{ app()->getLocale() }}">
-<!doctype html>
 <html lang="en">
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <title>Бизнес справочник</title>
 
-    <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
-    <title>IT Logistics</title>
+    <style>
+        .bd-placeholder-img {
+            font-size: 1.125rem;
+            text-anchor: middle;
+        }
+
+        @media (min-width: 768px) {
+            .bd-placeholder-img-lg {
+                font-size: 3.5rem;
+            }
+        }
+
+        .container {
+            max-width: 960px;
+        }
+
+        .lh-condensed { line-height: 1.25; }
+    </style>
+
 </head>
 
-<body>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-    <a class="navbar-brand" href="/">2 Gis справочник</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-</nav><br>
+<body class="bg-light">
+<div class="container">
+    <div class="py-5 text-center">
+        <img src="https://img.icons8.com/wired/64/000000/client-company.png">
+        <h2>Бизнес справочник</h2>
+        <p class="lead">Сервис поиска ближайших бизнес центров по геокоординатам. Поиск фирм по названию с помощью Elastic Search.
+        Данные кэшируются с помощью Redis. Создан на фреймворке Laravel.</p>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
 
 @show
 <div class="container">

@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Cache;
 use App\Category;
 
 class CategoryController extends Controller
 {
     public function all()
     {
-        $items = Category::all();
-        return json_encode($items, JSON_UNESCAPED_UNICODE);
+        $key = 'categoriesAll';
+        $categories = Cache::remember($key, 60, function () {
+
+            return Category::all();
+        });
+
+        return json_encode($categories, JSON_UNESCAPED_UNICODE);
     }
 
     public function view($id)
